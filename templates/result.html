@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Prediction Result</title>
+    <link rel="shortcut icon" href="{{ url_for('static', filename='heart-favicon.ico') }}">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='styles.css') }}">
+    <script src="https://kit.fontawesome.com/5f3f547070.js" crossorigin="anonymous"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
+    
+</head>
+<body>
+    <section id="start">
+        <div class="result-head">
+            <p>Heart Attack Predictor</p>
+        </div>
+        
+        <p class="animate-text">
+          <span>Thanks for using our service</span>
+          <span>Take care</span>
+          <span>Have a good day!</span>
+      </p>
+
+        <div class="results">
+			    {% if prediction==1 %}
+				    <h1>Prediction: <span class='danger'>Sorry! There are possibilities of heart attack</span></h1>
+            <img src="{{ url_for('static', filename='unhappy.jpeg') }}" alt="unhappy" height="250px" width="250px">
+		    	{% elif prediction==0 %}
+				    <h1>Prediction: <span class='safe'>Congrats! You have no possibilities of heart attack</span></h1>
+            <img src="{{ url_for('static', filename='happy.png') }}" alt="happy" height="240px" width="240px">
+		    	{% endif %}
+		</div>
+    </section>
+    <footer>
+      <p class="copyright">&copy; Mainak Singha</p>
+      <div class="last">
+        <a target="_blank" href="https://github.com/Mainak21">
+          <img src="{{ url_for('static', filename='github.png') }}" alt="GitHub" width="26px" height="26px">
+        </a>
+        <a target="_blank" href="https://www.linkedin.com/in/mainak-singha-540319201/">
+          <img src="{{ url_for('static', filename='linkedin.png') }}" alt="LinkedIn" width="28px" height="28px">
+        </a>
+        <a target="_blank" href="https://www.instagram.com/mainaksw/">
+          <img src="{{ url_for('static', filename='Instagram.png') }}" alt="Instagram" width="26px" height="26px">
+        </a>
+        <a target="_blank" href="https://twitter.com/Mainaksw">
+          <img src="{{ url_for('static', filename='Twitter.png') }}" alt="Twitter" width="26px" height="26px">
+        </a>
+      </div>
+    </footer>
+    <script>
+      const txts = document.querySelector(".animate-text").children,
+        txtsLen = txts.length;
+      let index = 0;
+      const textInTimer = 3000,
+        textOutTimer = 2800;
+
+      function animateText() {
+        for (let i = 0; i < txtsLen; i++) {
+          txts[i].classList.remove("text-in", "text-out");
+        }
+        txts[index].classList.add("text-in");
+
+        setTimeout(function () {
+          txts[index].classList.add("text-out");
+        }, textOutTimer);
+
+        setTimeout(function () {
+          if (index == txtsLen - 1) {
+            index = 0;
+          } else {
+            index++;
+          }
+          animateText();
+        }, textInTimer);
+      }
+
+      window.onload = animateText;
+    </script>
+    
+</body>
+</html>

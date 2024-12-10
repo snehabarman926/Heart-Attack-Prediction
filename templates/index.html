@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+    <meta charset="UTF-8">
+    <title>Heart Attack Predictor</title>
+    <link rel="shortcut icon" href="{{ url_for('static', filename='heart-favicon.ico') }}">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='styles.css') }}">
+    <script src="https://kit.fontawesome.com/5f3f547070.js" crossorigin="anonymous"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
+       
+</head>
+<body>
+    <section id="part1">
+        <div class="left1">
+            <div class="smallright">
+                <div class="navigation">
+                    <div class="head">
+                        <p>Heart Attack Predictor</p>
+                    </div>
+                </div>
+                <p class="animate-text">
+                    <span>Chest pain or discomfort?</span>
+                    <span>Feeling weak?</span>
+                    <span>Feeling light-headed or faint?</span>
+                    <span>Pain in jaw, neck or back?</span>
+                    <span>Pain in arms or shoulders?</span>
+                    <span>Shortness of breath?</span>
+                    <span>Check your prediction today</span>
+                </p>
+                <p class="subhead">Put the necessary details of yours in below</p>
+                <div class="container">
+                    <form action="{{ url_for('predict') }}" method="POST">
+                        <div class="row">
+                            <div class="searchbox">
+                              <input
+                                type="text"
+                                name="age"
+                                placeholder="Age (years) eg. 44.0"
+                                class="search-input"
+                              />
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="searchbox">
+                              <input
+                                type="text"
+                                name="sex"
+                                placeholder="Sex : 0 = female and 1 = male"
+                                class="search-input"
+                              />
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="searchbox">
+                              <input
+                                type="text"
+                                name="cp"
+                                placeholder="Chest Pain"
+                                class="search-input"
+                              />
+                            </div>
+                        </div>
+                        <p class="text-below">1 = typical angina, 2 = atypical angina, 3 = non-anginal pain, 4 = asymptotic</p>
+                        <div class="row">
+                            <div class="searchbox">
+                              <input
+                                type="text"
+                                name="trestbps"
+                                placeholder="Resting Blood Pressure (mmHg) eg. 120.0"
+                                class="search-input"
+                              />
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="searchbox">
+                              <input
+                                type="text"
+                                name="chol"
+                                placeholder="Cholesterol (mg/dl) eg. 250.0"
+                                class="search-input"
+                              />
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="searchbox">
+                              <input
+                                type="text"
+                                name="fbs"
+                                placeholder="Fasting Blood Sugar : 1 = if fbs >120 mg/dl, else 0"
+                                class="search-input"
+                              />
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="searchbox">
+                              <input
+                                type="text"
+                                name="restecg"
+                                placeholder="Resting ECG"
+                                class="search-input"
+                              />
+                            </div>
+                        </div>
+                        <p class="text-below">0 = normal, 1 = having ST-T wave abnormality, 2 = left ventricular hypertrophy</p>
+                        <div class="row">
+                            <div class="searchbox">
+                              <input
+                                type="text"
+                                name="thalach"
+                                placeholder="Max Heart Rate eg. 150.0"
+                                class="search-input"
+                              />
+                            </div>
+                        </div> 
+                        <div class="row">
+                            <div class="searchbox">
+                              <input
+                                type="text"
+                                name="exang"
+                                placeholder="Exercise induced angina : 0 = No and 1 = Yes"
+                                class="search-input"
+                              />
+                            </div>
+                        </div>  
+                        <div class="row">
+                            <div class="searchbox">
+                              <input
+                                type="text"
+                                name="oldpeak"
+                                placeholder="ST depression eg. 1.5"
+                                class="search-input"
+                              />
+                            </div>
+                        </div>  
+                        <div class="row">
+                            <div class="searchbox">
+                              <input
+                                type="text"
+                                name="slope"
+                                placeholder="ST segment : 0 = up-slope, 1 = flat, 2 = down-slope"
+                                class="search-input"
+                              />
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="searchbox">
+                              <input
+                                type="text"
+                                name="ca"
+                                placeholder="No. of major vessels : 0 to 4 by coloring through fluoroscopy"
+                                class="search-input"
+                              />
+                            </div>
+                        </div>  
+                        <div class="row">
+                            <div class="searchbox">
+                              <input
+                                type="text"
+                                name="thal"
+                                placeholder="Thalassemia : 1 = normal,2 = fixeddefect, 3 = reversible defect"
+                                class="search-input"
+                              />
+                            </div>
+                        </div> 
+                        <input type="submit" class="main-button" value="Predict">
+                    </form>
+                </div>                       
+            </div>
+        </div>
+        <div class="right1">
+            <img
+              src="{{ url_for('static', filename='medical.png') }}"
+              width="100%"
+              height="25%"
+              alt="technology"
+            />
+            <p class="right-text">
+                Don't worry!
+            </p>
+            <img
+              src="{{ url_for('static', filename='heart.jpeg') }}"
+              width="100%"
+              height="30%"
+              alt="heart"
+            />
+            <p class="right-text">
+                 We are here
+            </p>
+            <img
+              src="{{ url_for('static', filename='healthcare.jpeg') }}"
+              width="100%"
+              height="29.9%"
+              alt="healthcare"
+            />
+        </div>
+    </section>
+    <footer>
+        <p class="copyright">&copy; Mainak Singha</p>
+        <div class="last">
+          <a target="_blank" href="https://github.com/Mainak21">
+            <img src="{{ url_for('static', filename='github.png') }}" alt="GitHub" width="26px" height="26px">
+          </a>
+          <a target="_blank" href="https://www.linkedin.com/in/mainak-singha-540319201/">
+            <img src="{{ url_for('static', filename='linkedin.png') }}" alt="LinkedIn" width="28px" height="28px">
+          </a>
+          <a target="_blank" href="https://www.instagram.com/mainaksw/">
+            <img src="{{ url_for('static', filename='Instagram.png') }}" alt="Instagram" width="26px" height="26px">
+          </a>
+          <a target="_blank" href="https://twitter.com/Mainaksw">
+            <img src="{{ url_for('static', filename='Twitter.png') }}" alt="Twitter" width="26px" height="26px">
+          </a>
+        </div>
+      </footer>
+      <script>
+        const txts = document.querySelector(".animate-text").children,
+          txtsLen = txts.length;
+        let index = 0;
+        const textInTimer = 3000,
+          textOutTimer = 2800;
+  
+        function animateText() {
+          for (let i = 0; i < txtsLen; i++) {
+            txts[i].classList.remove("text-in", "text-out");
+          }
+          txts[index].classList.add("text-in");
+  
+          setTimeout(function () {
+            txts[index].classList.add("text-out");
+          }, textOutTimer);
+  
+          setTimeout(function () {
+            if (index == txtsLen - 1) {
+              index = 0;
+            } else {
+              index++;
+            }
+            animateText();
+          }, textInTimer);
+        }
+  
+        window.onload = animateText;
+      </script>
+</body>
+</html>
