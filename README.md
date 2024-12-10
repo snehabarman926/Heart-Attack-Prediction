@@ -12,7 +12,7 @@ Heart attack or Myocardial Infarction is one of the cardiovascular diseases. ST-
 In this project, I have used the [Heart Disease dataset](https://archive.ics.uci.edu/ml/datasets/heart+disease) from [UCI Machine Learning Repository](https://archive.ics.uci.edu/ml/index.php). 
 
 ### Description
-The dataset has 13 descision parameters with a 'num' column, which represents the output of the dependent parameters. The details of the dataset is taken from this [reference](https://www.ijeat.org/portfolio-item/f30430810621/). The predictable variables are as follows:
+The dataset has 13 decision parameters with a 'num' column, which represents the output of the dependent parameters. The details of the dataset is taken from this [reference](https://www.ijeat.org/portfolio-item/f30430810621/). The predictable variables are as follows:
 
 1. `Age (age)`: Age of the patient at the time of health checkup
 2. `Sex (sex)`: 0 = female and 1 = male
